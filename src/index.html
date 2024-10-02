@@ -7,15 +7,20 @@
     <meta http-equiv="refresh">
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Sen:wght@400..800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background: rgb(234,225,81);
+            background: linear-gradient(0deg, rgba(239, 222, 168, 0.315) 2%, rgba(255,255,255,1) 60%);
         }
 
         header {
-            background-color: #333;
+            background-color: #2D2A32;
             color: #fff;
             padding: 1em;
             text-align: center;
@@ -42,25 +47,39 @@
         .grid-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+            gap: 15px;
         }
 
         .card {
-            background-color: #fff;
+            background-color: #2D2A32;
             padding: 1em;
-            border: 1px solid #ddd;
+            border: 1px solid #ffffff;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
             align-items: center;
+            color: #FAFDF6;
+            transition: color 0.25s, background-color 0.25s;
+            font-family: "Nunito", sans-serif;
+            aspect-ratio: 1/cos(30deg);
+            clip-path: polygon(50% -50%,100% 50%,50% 150%,0 50%);
+        }
+
+        .card:hover {
+            background-color: #ffd900 !important;
+            color: #2D2A32;
+            box-shadow: 0 0 10px rgb(255, 181, 20);
         }
 
         .card h2 {
-            margin-top: 0;
-            font-size: 1.5rem;
+            margin-top: 0.1;  
+            font-size: 0.75rem;
         }
 
+        .card p {
+            font-size: 2.75rem;
+        }
 
         .button-section {
             margin-top: 2em;
@@ -87,9 +106,9 @@
             text-align: center;
         }
 
-        .units {
+        /* .units {
             font-size: 0.8em;
-        }
+        } */
     </style>
 </head>
 
@@ -113,82 +132,113 @@
         <section class="grid-container">
             <!--BME Temperature-->
             <div class="card">
-                <h2>Temperature 1: </h2>
+                <h2>Temperature 1 </h2>
                 <p>
                     <span id="BMETemperatureValue">0</span>
-                    <sup class="units">&deg;C</sup>
+                    <span class="units">&deg;C</span>
                 </p>
             </div>
             <!--BME Humidity-->
             <div class="card">
-                <h2>Humidity 1: </h2>
+                <h2>Humidity 1 </h2>
                 <p>
                     <span id="BMEHumidityValue">0</span>
-                    <sup class="units">%</sup>
+                    <span class="units">%</span>
                 </p>
             </div>
             <!--BME Pressure-->
             <div class="card">
-                <h2>Pressure 1: </h2>
+                <h2>Pressure 1 </h2>
                 <p>
                     <span id="BMEPressureValue">0</span>
-                    <sup class="units">mb</sup>
+                    <span class="units">mb</span>
                 </p>
             </div>
             <!--BMP Temperature-->
             <div class="card">
-                <h2>Temperature 2: </h2>
+                <h2>Temperature 2 </h2>
                 <p>
                     <span id="BMPTemperatureValue">0</span>
-                    <sup class="units">&deg;C</sup>
+                    <span class="units">&deg;C</span>
                 </p>
             </div>
             <!--DHT Humidity-->
             <div class="card">
-                <h2>Humidity 2: </h2>
+                <h2>Humidity 2 </h2>
                 <p>
                     <span id="DHTHumidityValue">0</span>
-                    <sup class="units">%</sup>
+                    <span class="units">%</span>
                 </p>
             </div>
             <!--BMP Pressure-->
             <div class="card">
-                <h2>Pressure 2: </h2>
+                <h2>Pressure 2 </h2>
                 <p>
                     <span id="BMPPressureValue">0</span>
-                    <sup class="units">mb</sup>
+                    <span class="units">mb</span>
+                </p>
+            </div>
+            <div class="card">
+                <h2>Temperature 3 </h2>
+                <p>
+                    <span id="BMETemperatureValue">0</span>
+                    <span class="units">&deg;C</span>
+                </p>
+            </div>
+            <!--BME Humidity-->
+            <div class="card">
+                <h2>Humidity 3 </h2>
+                <p>
+                    <span id="BMEHumidityValue">0</span>
+                    <span class="units">%</span>
+                </p>
+            </div>
+            <!--BME Pressure-->
+            <div class="card">
+                <h2>Pressure 3 </h2>
+                <p>
+                    <span id="BMEPressureValue">0</span>
+                    <span class="units">mb</span>
                 </p>
             </div>
             <!--AS5600 Wind Direction-->
             <div class="card">
-                <h2>Wind Direction: </h2>
+                <h2>Wind Direction </h2>
                 <p>
                     <span id="WindDirectionValue">0</span>
-                    <sup class="units">&deg;</sup>
+                    <span class="units">&deg;</span>
                 </p>
             </div>
             <!--BH1750 Light-->
             <div class="card">
-                <h2>Light Intensity: </h2>
+                <h2>Light Intensity </h2>
                 <p>
                     <span id="LightValue">0</span>
-                    <sup class="units">lux</sup>
+                    <span class="units">lux</span>
+                </p>
+            </div>
+            <!--GUVA S12SD-->
+            <div class="card">
+                <h2>UV Intensity </h2>
+                <p>
+                    <span id="UVValue">0</span>
+                    <span class="units">W/cm2</span>
                 </p>
             </div>
             <!--Precipitation-->
             <div class="card">
-                <h2>Precipitation: </h2>
+                <h2>Precipitation </h2>
                 <p>
                     <span id="PrecipitationValue">0</span>
-                    <sup class="units">mm</sup>
+                    <span class="units">mm</sspan>
                 </p>
             </div>
             <!--Wind Speed-->
             <div class="card">
-                <h2>Wind Speed: </h2>
+                <h2>Wind Speed </h2>
                 <p>
                     <span id="WindSpeedValue">0</span>
-                    <sup class="units">kph</sup>
+                    <span class="units">kph</span>
                 </p>
             </div>
         </section>
@@ -396,6 +446,12 @@
             getLightData();
             getPrecipitationData();
             getWindSpeedData();
+        }
+    </script>
+    <script>
+        // Animations and Jibjabs
+        function focusOnThisElement(){
+
         }
     </script>
 </body>
